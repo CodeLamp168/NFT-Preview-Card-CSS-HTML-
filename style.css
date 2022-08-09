@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+* {
+    box-sizing:border-box;
+}
+
+/*Preset positioning to center main content*/
+body {
+    font-family:'Outfit';
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100vh;
+    background-color:hsl(217, 54%, 11%);
+    font-size:18px;
+    overflow:hidden;
+}
+
+/* To maintain image quality when resizing */
+img {
+    width:100%;
+    height:auto;
+}
+
+strong, span {
+    color:hsl(178, 100%, 50%);
+    cursor:pointer;
+}
+
+p {
+    font-size:16px;
+}
+small, p{
+    color:hsl(215, 51%, 70%);
+}
+
+/* position: absolute on main div so images can use position: relative */ 
+.nft-card {
+    width:auto;
+    background:hsl(216, 50%, 16%);
+    border-radius: 10px;
+    position:absolute;
+    padding:15px;
+    box-shadow: 0 0px 5px 5px hsl(215, 42%, 18%);
+}
+
+.nft {
+    background-color:cyan;
+    border-radius:15px;
+    height:260px;
+    transition: ease 0.5s all;
+    cursor:pointer;
+}
+
+.nft-img {
+    width:260px;
+    border-radius: 10px;
+    position:relative;
+    filter:opacity(0.5);
+    transition: 0.5s ease;
+}
+
+.view-img {
+    position:relative;
+    width:35px;
+    bottom:9.3rem;
+    left:7.1rem;
+    transition: ease 0.5s all;
+}
+
+.nft .nft-img:hover {
+   background:none;
+   filter:opacity(1);
+}
+
+.nft:hover .view-img {
+    display:none;
+}
+
+
+.profile-img {
+    width:30px;
+    border: solid white 1px;
+    border-radius:100%;
+}
+
+
+
+/* Space between used to seperate the ethereum and clock */
+.price-day {
+    display:flex;
+    font-size:15px;
+    justify-content: space-between;
+    margin-bottom:1.5rem;
+    text-align:center;
+}
+
+
+.nft-info {
+    margin-top:1rem;
+    width:260px;
+}
+.icon {
+    width:10px;
+    height:15px;
+    margin-right:4px;
+    position:relative;
+    top:2.5px;
+}
+.icon-clock {
+    width:13px;
+}
+
+.creator {
+    padding-top:1.3rem;
+    margin-top:5px;
+    margin-bottom:5px;
+    border-top: 1px solid hsl(215, 32%, 27%);
+}
+
+.creator small {
+    position:relative;
+    bottom:12px;
+    left:8px;
+    font-size:13px;
+}
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+    z-index: 1; 
+    position:relative;
+    bottom:-17rem;
+    color:white;
+}
+.attribution a { color: hsl(178, 100%, 50%); }
+
