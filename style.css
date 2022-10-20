@@ -1,139 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap');
 
 * {
     box-sizing:border-box;
 }
 
-/*Preset positioning to center main content*/
+/* Presentation Display */
 body {
+    color:white;
     font-family:'Outfit';
     display:flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     height:100vh;
     background-color:hsl(217, 54%, 11%);
     font-size:18px;
-    overflow:hidden;
-}
+    flex-wrap:wrap;
 
-/* To maintain image quality when resizing */
-img {
-    width:100%;
-    height:auto;
-}
-
-strong, span {
-    color:hsl(178, 100%, 50%);
-    cursor:pointer;
 }
 
 p {
-    font-size:16px;
-}
-small, p{
-    color:hsl(215, 51%, 70%);
-}
-
-/* position: absolute on main div so images can use position: relative */ 
-.nft-card {
-    width:auto;
-    background:hsl(216, 50%, 16%);
-    border-radius: 10px;
-    position:absolute;
-    padding:15px;
-    box-shadow: 0 0px 5px 5px hsl(215, 42%, 18%);
-}
-
-.nft {
-    background-color:cyan;
-    border-radius:15px;
-    height:260px;
-    transition: ease 0.5s all;
-    cursor:pointer;
-}
-
-.nft-img {
-    width:260px;
-    border-radius: 10px;
-    position:relative;
-    filter:opacity(0.5);
-    transition: 0.5s ease;
-}
-
-.view-img {
-    position:relative;
-    width:35px;
-    bottom:9.3rem;
-    left:7.1rem;
-    transition: ease 0.5s all;
-}
-
-.nft .nft-img:hover {
-   background:none;
-   filter:opacity(1);
-}
-
-.nft:hover .view-img {
-    display:none;
-}
-
-
-.profile-img {
-    width:30px;
-    border: solid white 1px;
-    border-radius:100%;
-}
-
-
-
-/* Space between used to seperate the ethereum and clock */
-.price-day {
-    display:flex;
     font-size:15px;
-    justify-content: space-between;
-    margin-bottom:1.5rem;
-    text-align:center;
 }
 
-
-.nft-info {
-    margin-top:1rem;
-    width:260px;
-}
-.icon {
-    width:10px;
-    height:15px;
-    margin-right:4px;
+/* Card Size Format */
+.nft-card {
     position:relative;
-    top:2.5px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    height:auto;
+    padding:1em;
+    width:350px;
+    background-color:hsl(216, 50%, 16%);
+    border-radius:10px;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.5);
+    margin:10px 20px;
 }
-.icon-clock {
-    width:13px;
+
+/* Image Positioning and Animation */
+.nft-img {
+    position:relative;
+    max-width:310px;
+    border-radius:10px;
 }
+
+.img-view {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    opacity:1;
+    background-color:hsla(178, 100%, 50%, 0.253);
+    border-radius:10px;
+    cursor:pointer;
+    animation:fadeIn 0.2s ease-in;
+    transition: background-color 0.2s ease-in;
+}
+
+.img-view img {
+    position:absolute;
+    top:42.5%;
+    left:42.5%;
+}
+
+.img-view:hover {
+   background-color:hsla(178, 100%, 50%, 0.473)
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0}
+    100% {opacity: 1}
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1}
+    100% {opacity: 0}
+}
+
+/* Active state */
+.img-view.active {
+    animation: fadeOut 0.5s ease-out;
+    opacity: 0;
+    cursor:auto;
+}
+/* ------- */
+
+/* Info Area */
+.nft-info h3, a{
+    color:hsl(178, 100%, 50%);
+    text-decoration:none;
+}
+
+.nft-info p {
+    color:hsl(215,51%, 70%);
+    font-weight:200;
+}
+
+.value-date {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:1em;
+    padding-bottom:1.3em;
+    border-bottom: 1px solid hsl(215, 32%, 27%);
+}
+
+.value .date, img {
+    margin-bottom:-3px;
+    margin-right:4px;
+}
+
+.value {
+    color:hsl(178, 100%, 50%);
+}
+
+.date {
+    color:hsl(215,51%, 70%);
+}
+
+/* -------- */
+
+/* Creator Section/Profile */
 
 .creator {
-    padding-top:1.3rem;
-    margin-top:5px;
-    margin-bottom:5px;
-    border-top: 1px solid hsl(215, 32%, 27%);
-}
-
-.creator small {
-    position:relative;
-    bottom:12px;
-    left:8px;
-    font-size:13px;
-}
-
-
-.attribution { 
-    font-size: 11px; 
+    display:flex;
     text-align: center;
-    z-index: 1; 
-    position:relative;
-    bottom:-17rem;
-    color:white;
+    align-items: center;
 }
-.attribution a { color: hsl(178, 100%, 50%); }
+
+.creator, p {
+    font-weight:500;
+}
+
+.creator, span {
+    color:hsl(178, 100%, 50%);
+}
+
+.creator img {
+    width:10%;
+    height:40%;
+    border:1px white solid;
+    border-radius:30px;
+    margin-right:15px;
+}
+
+
+
+footer {
+    position:absolute;
+    font-size:10px;
+    bottom:5px;
+    z-index:-1;
+}
 
